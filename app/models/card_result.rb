@@ -1,0 +1,2 @@
+class CardResult < ApplicationRecord
+end

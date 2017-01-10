@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ /* Static Pages */
+
+ h1 {
+  color: red;
+ }

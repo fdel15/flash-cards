@@ -1,2 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* Layouts */
+.navbar-header {
+  li {
+    list-style: none;
+  }
+  
+}
+
+.nav.navbar-nav {
+  li a:hover {
+    background: black;
+    color: white;
+  }
+}
+
+.content {
+  margin: 60px 5%;
+  border: solid 1px black;
+}

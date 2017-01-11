@@ -1,0 +1,8 @@
+<%= form_for :category, url: create_category_path do |f| %>
+  <div class="field">
+    <%= f.label :description, "Category" %>
+    <%= f.text_field :description %>
+
+    <%= f.submit "Add Category" %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<%= form_for :card, url: create_card_path do |f| %>
+  <div class="field">
+    <%= f.label :category, "Category" %>
+    <%= f.collection_select(:category, @categories, :id, :description ) %>
+
+    <%= f.label :front, "Front of Card" %>
+    <%= f.text_field :front %>
+
+    <%= f.label :back, "Back of Card" %>
+    <%= f.text_field :back %>
+
+    <%= f.submit "Add Card" %>
+  </div>
+<% end %>

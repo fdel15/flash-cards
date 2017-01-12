@@ -1,7 +1,7 @@
 class CreateCategories < ActiveRecord::Migration[5.0]
   def change
     create_table :categories do |t|
-      t.string  :description
+      t.string  :description, null: false
       t.integer :sort_key, :default => 100 
 
       t.timestamps

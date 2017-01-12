@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20170110113055) do
   end
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "category_id"
-    t.string   "description"
+    t.integer  "category_id",           null: false
+    t.string   "description",           null: false
     t.boolean  "front"
     t.boolean  "back"
     t.integer  "other_side_of_card_fk"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20170110113055) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "description"
-    t.integer  "sort_key"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "description",               null: false
+    t.integer  "sort_key",    default: 100
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

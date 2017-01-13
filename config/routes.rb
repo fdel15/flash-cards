@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :cards
 
+  post '/cards/review', to: 'cards#review', as: 'review'
+
 
 end

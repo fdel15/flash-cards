@@ -1,14 +1,16 @@
-<%= form_for :card, url: { action: "create" } do |f| %>
-  <div class="field">
-    <%= f.label :category, "Category" %>
-    <%= f.collection_select(:category, @categories, :id, :description ) %>
+<div class="new_card_form">
+  <%= form_for :card, url: { action: "create" } do |f| %>
+    <div class="field">
+      <%= f.label :category, "Category" %>
+      <%= f.collection_select(:category, @categories, :id, :description ) %><br/>
 
-    <%= f.label :front, "Front of Card" %>
-    <%= f.text_field :front %>
+      <%= f.label :front, "Front of Card" %>
+      <%= f.text_area :front, rows: 10, width: "100%"  %><br/>
 
-    <%= f.label :back, "Back of Card" %>
-    <%= f.text_field :back %>
+      <%= f.label :back, "Back of Card" %>
+      <%= f.text_area :back, rows: 10, width: "100%" %><br/>
 
-    <%= f.submit "Add Card" %>
-  </div>
-<% end %>
+      <%= f.submit "Add Card" %>
+    </div>
+  <% end %>
+</div>

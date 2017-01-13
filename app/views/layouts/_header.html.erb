@@ -9,15 +9,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <li class="navbar-brand">Flash Cards</li>
+        <li class="navbar-brand"><%= link_to 'Flash Cards', root_path %></li>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#">New Card</a></li>
+          <li><%= link_to 'New Card', new_card_path %></li>
           <li><a href="#">Study Cards</a></li>
-          <li><a href="#">New Category</a></li>
+          <li><%= link_to 'New Category', new_category_path %></li>
           <li><a href="https://github.com/fdel15/flash-cards" target="_blank">GitHub</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->

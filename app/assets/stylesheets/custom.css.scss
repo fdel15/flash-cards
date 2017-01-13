@@ -2,11 +2,20 @@
 @import "bootstrap";
 
 /* Layouts */
+ a {
+  text-decoration: none;
+  color: #777;
+ }
+
 .navbar-header {
   li {
     list-style: none;
   }
-  
+
+  li a:hover {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .nav.navbar-nav {

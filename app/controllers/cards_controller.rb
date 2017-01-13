@@ -1,5 +1,10 @@
 class CardsController < ApplicationController
 
+  def index
+    @cards = Card.all
+    @categories = Category.all
+  end
+
   def new
     @categories = Category.all
   end
@@ -18,6 +23,17 @@ class CardsController < ApplicationController
       flash[:error] = "Oops something went wrong! Try again"
       redirect_to :back
     end
+  end
+
+  def review
+    category = params[:review_cards][:category].to_i
+    if category > 0
+      @cards = Card.where("category_id = ? ", category)
+    else
+      @cards = Card.all  
+    end
+      @categories = Category.all
+      render :index
   end
 
   private

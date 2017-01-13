@@ -66,3 +66,11 @@ body {
     width: 90%;
   }
 }
+
+.display_cards {
+  .front-cards, .back-cards {
+    display: inline-block;
+    width: 35%;
+    margin: 0 5%;
+  }
+}

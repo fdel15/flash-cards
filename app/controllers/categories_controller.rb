@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.valid?
-      category.save
+      @category.save
       flash[:success] = 'Category created!'
     else
       flash[:error] = 'Oops something went wrong! Try again'

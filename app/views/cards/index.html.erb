@@ -1,0 +1,24 @@
+<div class="review-cards">
+  <%= form_for :review_cards, url: { action: "review" } do |f| %>
+    <div class="field">
+      <%= f.label :category, "Category" %>
+      <%= f.collection_select(:category, @categories, :id, :description, { :include_blank => "All Cards" } ) %><br/>
+
+      <%= f.submit "Test Me!" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="display_cards">
+  <% @cards.each do |card| %>
+    
+    <div class="front-cards">
+      <h4 class="card"> <%= card.description %> </h4>
+    </div>
+
+    <div class="back-cards">
+      <h4 class="card"> <%= card.description %> </h4>
+    </div>
+
+  <% end %>
+</div>

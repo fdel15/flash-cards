@@ -41,7 +41,12 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-  def delete
+  def destroy
+    card = Card.find(params[:id])
+    flip_side = Card.find(card.flip_side_id)
+    card.destroy
+    flip_side.destroy
+    redirect_to cards_path
   end
 
   def review

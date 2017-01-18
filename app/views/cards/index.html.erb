@@ -10,14 +10,16 @@
 </div>
 
 <div class="display_cards">
-  <% @cards.each do |card| %>
+  <% @front_cards.each_with_index do |card, i| %>
     
     <div class="front-cards">
+      <%= display_card_header("Front", i) %>
       <h4 class="card"> <%= card.description %> </h4>
     </div>
 
     <div class="back-cards">
-      <h4 class="card"> <%= card.description %> </h4>
+      <%= display_card_header("Back", i) %>
+      <h4 class="card"> <%= card.flip_side_description %> </h4>
     </div>
 
   <% end %>

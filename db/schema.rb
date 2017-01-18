@@ -21,15 +21,15 @@ ActiveRecord::Schema.define(version: 20170110113055) do
   end
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "category_id",           null: false
-    t.string   "description",           null: false
+    t.integer  "category_id",  null: false
+    t.string   "description",  null: false
     t.boolean  "front"
     t.boolean  "back"
-    t.integer  "other_side_of_card_fk"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "flip_side_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["category_id"], name: "index_cards_on_category_id"
-    t.index ["other_side_of_card_fk"], name: "index_cards_on_other_side_of_card_fk"
+    t.index ["flip_side_id"], name: "index_cards_on_flip_side_id"
   end
 
   create_table "categories", force: :cascade do |t|

@@ -5,7 +5,7 @@ class CreateCards < ActiveRecord::Migration[5.0]
       t.string :description, null: false
       t.boolean :front
       t.boolean :back
-      t.integer :other_side_of_card_fk, index: true
+      t.references :flip_side, index: true
       t.timestamps
     end
   end

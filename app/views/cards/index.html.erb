@@ -15,11 +15,13 @@
     <div class="front-cards">
       <%= display_card_header("Front", i) %>
       <h4 class="card"> <%= card.description %> </h4>
+      <button><%= link_to "Edit", edit_card_path(card.id) %></button> <button><%= link_to "Delete", card, method: :delete, data: { confirm: "Are you sure?" } %></button>
     </div>
 
     <div class="back-cards">
       <%= display_card_header("Back", i) %>
       <h4 class="card"> <%= card.flip_side_description %> </h4>
+      <button><%= link_to "Edit", edit_card_path(card.flip_side_id) %></button> <button><%= link_to "Delete", card, method: :delete, data: { confirm: "Are you sure?" } %></button>
     </div>
 
   <% end %>

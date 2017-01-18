@@ -8,4 +8,8 @@ class Card < ApplicationRecord
   def flip_side_description
     Card.find(self.flip_side_id).description
   end
+
+  def keep_flip_category_in_sync
+    Card.find(self.flip_side_id).update(category_id: self.category_id)
+  end
 end

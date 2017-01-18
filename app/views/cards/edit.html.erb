@@ -1,0 +1,15 @@
+<div class="new_card_form">
+  <%= form_for @card, url: { action: "update" }, method: "patch" do |f| %>
+    <div class="field">
+      <%= f.hidden_field :id, value: @card.id %>
+
+      <%= f.label :category_id, "Category" %>
+      <%= f.collection_select(:category_id, @categories, :id, :description ) %><br/>
+
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description, rows: 10, width: "100%"  %><br/>
+
+      <%= f.submit "Update Card" %>
+    </div>
+  <% end %>
+</div>

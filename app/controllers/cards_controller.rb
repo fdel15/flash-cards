@@ -3,6 +3,7 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
     @categories = Category.all
+    @front_cards = Card.where(front: true)
   end
 
   def new
@@ -12,12 +13,11 @@ class CardsController < ApplicationController
   def create
     front  = Card.new(description: card_params[:front], category_id: card_params[:category], front: 1)
     back   = Card.new(description: card_params[:back], category_id: card_params[:category], back: 1)
-
     if front.valid? && back.valid?
       front.save
-      back.other_side_of_card_fk = front.id
+      back.flip_side_id = front.id
       back.save
-      front.update!(other_side_of_card_fk: back.id)
+      front.update!(flip_side_id: back.id)
       redirect_to root_path
     else
       flash[:error] = "Oops something went wrong! Try again"

@@ -68,9 +68,17 @@ body {
 }
 
 .display_cards {
+  h2 { text-align: center; }
+
   .front-cards, .back-cards {
     display: inline-block;
     width: 35%;
     margin: 0 5%;
+
+    .card { 
+      max-width: none; 
+      width: 100%; 
+      padding: 70px 5px;
+    }
   }
 }

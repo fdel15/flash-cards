@@ -1,8 +1,8 @@
 <div class="review-cards">
-  <%= form_for :review_cards, url: { action: "review" } do |f| %>
+  <%= form_for :category, url: { action: "index" }, html: { method: "GET" }, enforce_utf8: false do |f| %>
     <div class="field">
       <%= f.label :category, "Category" %>
-      <%= f.collection_select(:category, @categories, :id, :description, { :include_blank => "All Cards" } ) %><br/>
+      <%= f.collection_select(:category_id, @categories, :id, :description, { :include_blank => "All Cards", :selected => category_select_value } ) %><br/>
 
       <%= f.submit "Test Me!" %>
     </div>
@@ -14,7 +14,7 @@
     
     <div class="front-cards">
       <%= display_card_header("Front", i) %>
-      <h4 class="card"> <%= card.description %> </h4>
+      <h4 class="card"> <%= card.description %><%= card.id %></h4>
       <button><%= link_to "Edit", edit_card_path(card.id) %></button> <button><%= link_to "Delete", card, method: :delete, data: { confirm: "Are you sure?" } %></button>
     </div>
 

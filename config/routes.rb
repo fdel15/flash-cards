@@ -7,5 +7,4 @@ Rails.application.routes.draw do
 
   get 'new_review_session', to: 'cards#new_review_session', as: 'new_review_session'
 
-
 end

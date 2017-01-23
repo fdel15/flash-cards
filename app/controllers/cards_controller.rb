@@ -7,7 +7,7 @@ class CardsController < ApplicationController
     else
       @front_cards = Card.where(front: true)
     end
-    @categories = Category.all
+      @categories = Category.all
   end
 
   def show

@@ -1,9 +1,17 @@
 class CardsController < ApplicationController
 
   def index
-    @cards = Card.all
+    category = params[:category]
+    if category && category[:category_id] != ""
+      @front_cards = Card.where("front = ? AND category_id = ?", true, category[:category_id])
+    else
+      @front_cards = Card.where(front: true)
+    end
     @categories = Category.all
-    @front_cards = Card.where(front: true)
+  end
+
+  def show
+    @card = Card.find(params[:id])
   end
 
   def new
@@ -52,7 +60,7 @@ class CardsController < ApplicationController
   def review
     category = params[:review_cards][:category].to_i
     if category > 0
-      @cards = Card.where("category_id = ? ", category)
+      @front_cards = Card.where("category_id = ? ", category)
     else
       @cards = Card.all  
     end

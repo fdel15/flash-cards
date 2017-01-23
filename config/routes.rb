@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :cards
 
+  get 'new_review_session', to: 'cards#new_review_session', as: 'new_review_session'
+
 
 end

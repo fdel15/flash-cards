@@ -2,19 +2,24 @@
   <%= form_for :category, url: { action: "index" }, html: { method: "GET" }, enforce_utf8: false do |f| %>
     <div class="field">
       <%= f.label :category, "Category" %>
-      <%= f.collection_select(:category_id, @categories, :id, :description, { :include_blank => "All Cards", :selected => category_select_value } ) %><br/>
+      <%= f.collection_select(:category_id, @categories, :id, :description, { :include_blank => "All Cards", :selected => category_select_value } ) %>
 
-      <%= f.submit "Test Me!" %>
+      <%= f.submit "Filter Cards by Category" %>
     </div>
   <% end %>
 </div>
+<br><br>
+
+<%= link_to new_review_session_path(:cards => get_card_ids(@front_cards))  do %>
+  <button>Review These Cards</button>
+<% end %>
 
 <div class="display_cards">
   <% @front_cards.each_with_index do |card, i| %>
     
     <div class="front-cards">
       <%= display_card_header("Front", i) %>
-      <h4 class="card"> <%= card.description %><%= card.id %></h4>
+      <h4 class="card"> <%= card.description %></h4>
       <button><%= link_to "Edit", edit_card_path(card.id) %></button> <button><%= link_to "Delete", card, method: :delete, data: { confirm: "Are you sure?" } %></button>
     </div>
 

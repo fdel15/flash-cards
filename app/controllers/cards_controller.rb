@@ -57,6 +57,13 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
+  def new_review_session
+    @review_cards = params[:cards].shuffle
+    @index = 0
+    @card = Card.find(@review_cards[@index])
+    render :review_card
+  end
+
   private
 
   def card_params

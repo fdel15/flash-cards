@@ -7,4 +7,8 @@ module ApplicationHelper
   def category_select_value
     params[:category] ? params[:category][:category_id] : 0
   end
+
+  def get_card_ids(cards)
+    cards.map{|card| card.id }
+  end
 end

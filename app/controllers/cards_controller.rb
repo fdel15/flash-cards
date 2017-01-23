@@ -57,17 +57,6 @@ class CardsController < ApplicationController
     redirect_to cards_path
   end
 
-  def review
-    category = params[:review_cards][:category].to_i
-    if category > 0
-      @front_cards = Card.where("category_id = ? ", category)
-    else
-      @cards = Card.all  
-    end
-      @categories = Category.all
-      render :index
-  end
-
   private
 
   def card_params

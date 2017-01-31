@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :cards
 
   get 'new_review_session', to: 'cards#new_review_session', as: 'new_review_session'
+  get 'next_card', to: 'cards#next_card', as: 'next_card'
 
 end

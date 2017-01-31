@@ -1,12 +1,18 @@
 <div "front-cards">
-  <%= render :template => "cards/show" %>
+  <%= render :template => "cards/show", :locals => {card: @front } %>
 </div>
 
 <br><br>
-<button>Flip Me</button>
+<button class="flip-button">Flip Me</button>
 
 <br><br>
 
-<div "back-cards">
-  <%= flip_side %>
+<div class="back-cards">
+  <%= render :template => "cards/show", :locals => {card: @back } %>
+  <%= link_to next_card_path(review_cards: @review_cards, correct: true, card: @front )  do %>
+    <button>Correct</button>
+  <% end %>
+    <%= link_to next_card_path(review_cards: @review_cards, correct: false, card: @front )  do %>
+    <button>Incorrect</button>
+  <% end %>
 </div>

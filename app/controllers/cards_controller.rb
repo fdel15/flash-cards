@@ -59,10 +59,28 @@ class CardsController < ApplicationController
 
   def new_review_session
     @review_cards = params[:cards].shuffle
-    @index = 0
-    @card = Card.find(@review_cards[@index])
+    session[:index] = 0
+    @front = Card.find(@review_cards[session[:index]])
+    @back = @front.flip_side
     render :review_card
   end
+
+  def next_card
+    last_card = Card.find(params[:card])
+    last_card.update_streak(params[:correct])
+
+    @review_cards = params[:review_cards]
+    session[:index] += 1
+    return redirect_to cards_path if end_of_session
+    @front = Card.find(@review_cards[session[:index]])
+    @back = @front.flip_side
+    render :review_card
+  end
+
+  def end_of_session
+    session[:index] >= @review_cards.length
+  end
+
 
   private
 

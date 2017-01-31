@@ -11,9 +11,4 @@ module ApplicationHelper
   def get_card_ids(cards)
     cards.map{|card| card.id }
   end
-
-  def flip_side
-   @card = Card.find(@card.flip_side_id)
-   render :template => "cards/show" 
-  end
 end

@@ -78,10 +78,14 @@ body {
     width: 35%;
     margin: 0 5%;
 
-    .card { 
-      max-width: none; 
-      width: 100%; 
+    .card {
+      max-width: none;
+      width: 100%;
       padding: 70px 5px;
     }
   }
+}
+
+.back-cards{
+  display: none;
 }

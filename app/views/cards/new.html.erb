@@ -2,15 +2,15 @@
   <%= form_for :card, url: { action: "create" } do |f| %>
     <div class="field">
       <%= f.label :category_id, "Category" %>
-      <%= f.collection_select(:category_id, @categories, :id, :description ) %><br/>
+      <%= f.collection_select(:category_id, @categories, :id, :description, {}, {class: "form-control dropdown"} ) %><br/>
 
       <%= f.label :front, "Front of Card" %>
-      <%= f.text_area :front, rows: 10, width: "100%"  %><br/>
+      <%= f.text_area :front, rows: 10, width: "100%", class: "form-control"  %><br/>
 
       <%= f.label :back, "Back of Card" %>
-      <%= f.text_area :back, rows: 10, width: "100%" %><br/>
+      <%= f.text_area :back, rows: 10, width: "100%", class: "form-control" %><br/>
 
-      <%= f.submit "Add Card" %>
+      <%= f.submit "Add Card", class: "btn btn-primary submit" %>
     </div>
   <% end %>
 </div>

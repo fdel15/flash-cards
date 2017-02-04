@@ -61,6 +61,23 @@ body {
 
 /* Cards */
 
+.field {
+  padding: 0 20px;
+
+  input {
+    width: 90%;
+  }
+}
+
+.dropdown {
+  width: 90%;
+}
+
+.submit {
+  width: 90%;
+  height: 40px;
+}
+
 .new_card_form {
   width: 100%;
   margin: 5%;
@@ -72,6 +89,8 @@ body {
 
 .display_cards {
   h2 { text-align: center; }
+  a { color: white;}
+  a:hover { text-decoration: none; }
 
   .front-cards, .back-cards {
     display: inline-block;

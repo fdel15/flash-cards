@@ -4,12 +4,12 @@
       <%= f.hidden_field :id, value: @card.id %>
 
       <%= f.label :category_id, "Category" %>
-      <%= f.collection_select(:category_id, @categories, :id, :description ) %><br/>
+      <%= f.collection_select(:category_id, @categories, :id, :description, {}, {class: "form-control dropdown"} ) %><br/>
 
       <%= f.label :description, "Description" %>
-      <%= f.text_area :description, rows: 10, width: "100%"  %><br/>
+      <%= f.text_area :description, rows: 10, width: "100%", class: "form-control"  %><br/>
 
-      <%= f.submit "Update Card" %>
+      <%= f.submit "Update Card", class: "btn btn-primary submit" %>
     </div>
   <% end %>
 </div>

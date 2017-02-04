@@ -1,18 +1,26 @@
-<div "front-cards">
-  <%= render :template => "cards/show", :locals => {card: @front } %>
-</div>
+<div class="review-card">
+  <div "front-cards">
+    <%= render :template => "cards/show", :locals => {card: @front } %>
+  </div>
 
-<br><br>
-<button class="flip-button">Flip Me</button>
+  <br><br>
+  <button class="btn btn-success flip-button">Flip Me</button>
 
-<br><br>
+  <br><br>
 
-<div class="back-cards">
-  <%= render :template => "cards/show", :locals => {card: @back } %>
-  <%= link_to next_card_path(review_cards: @review_cards, correct: true, card: @front )  do %>
-    <button>Correct</button>
-  <% end %>
-    <%= link_to next_card_path(review_cards: @review_cards, correct: false, card: @front )  do %>
-    <button>Incorrect</button>
-  <% end %>
+  <div class="back-cards">
+    <%= render :template => "cards/show", :locals => {card: @back } %>
+    <div class="container-fluid">
+      <div class="row result-btns">
+        <div class="col-xs-6 col-xs-offset-3">
+          <%= link_to next_card_path(review_cards: @review_cards, correct: true, card: @front )  do %>
+            <button class="btn btn-success form-control result-btn">Right!</button>
+          <% end %>
+          <%= link_to next_card_path(review_cards: @review_cards, correct: false, card: @front )  do %>
+            <button class="btn btn-warning form-control result-btn">Wrong!</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </div>
 </div>

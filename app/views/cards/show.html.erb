@@ -3,7 +3,8 @@
     <h4><%= card.category.description %></h4>
     <div class="col-xs-6 col-xs-offset-3">
       <h4 class="card"><%= card.description %></h4>
-      <button><%= link_to "Edit", edit_card_path(card.id) %></button> <button><%= link_to "Delete", card, method: :delete, data: { confirm: "Are you sure?" } %></button>
+      <button class="btn btn-primary edit-delete"><%= link_to "Edit", edit_card_path(card.id) %></button>
+      <button class="btn btn-danger edit-delete"><%= link_to "Delete", card, method: :delete, data: { confirm: "Are you sure?" } %></button>
     </div>
   </div>
 </div>

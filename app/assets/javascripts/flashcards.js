@@ -27,7 +27,7 @@ function get_card(cards, id) {
 }
 
 function display_card(card) {
-  return  "<h4 class='card'>" + card.description + "</h4>" +
+  return  "<h4 class='card streak-" + card.streak + "'>" + card.description + "</h4>" +
           edit_button(card.id) + delete_button(card.id)
 }
 

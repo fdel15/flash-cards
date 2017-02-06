@@ -8,7 +8,12 @@ module ApplicationHelper
     params[:category] ? params[:category][:category_id] : 0
   end
 
-  def get_card_ids(cards)
-    cards.map{|card| card.id }
+  def find_card(cards, card_id)
+    cards.find{|card| card.id == card_id }
+  end
+
+  def display_card(card)
+    streak = card.streak >= 10 ? 10 : card.streak
+    "<h4 class='card streak-#{ streak }'>#{ card.description }</h4>".html_safe
   end
 end

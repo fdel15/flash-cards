@@ -12,5 +12,10 @@ class Card < ApplicationRecord
   def update_streak(correct)
     correct == "true" ? self.streak += 1 : self.streak = 0
     self.save
+    keep_streak_in_sync
+  end
+
+  def keep_streak_in_sync
+    Card.find(self.flip_side_id).update(streak: self.streak)
   end
 end

@@ -5,10 +5,6 @@ class Card < ApplicationRecord
   validates :description, presence: true, length: { minimum: 1 }
   validates :category_id, presence: true
 
-  def flip_side
-    Card.find(self.flip_side_id)
-  end
-
   def keep_flip_category_in_sync
     Card.find(self.flip_side_id).update(category_id: self.category_id)
   end

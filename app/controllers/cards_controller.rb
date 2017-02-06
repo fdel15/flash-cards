@@ -1,13 +1,14 @@
 class CardsController < ApplicationController
 
   def index
-    category = params[:category]
-    if category && category[:category_id] != ""
-      @front_cards = Card.where("front = ? AND category_id = ?", true, category[:category_id])
-    else
-      @front_cards = Card.where(front: true)
+    @category = params[:category]
+    @cards = get_cards_by_category
+    @categories = Category.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @cards }
     end
-      @categories = Category.all
   end
 
   def show
@@ -58,10 +59,11 @@ class CardsController < ApplicationController
   end
 
   def new_review_session
-    @review_cards = params[:cards].shuffle
+    cards = get_cards_by_category
+    @review_cards = cards.select{ |card| card.front }.shuffle()
     session[:index] = 0
     @front = Card.find(@review_cards[session[:index]])
-    @back = @front.flip_side
+    @back = Card.find(@front.flip_side_id)
     render :review_card
   end
 
@@ -73,7 +75,7 @@ class CardsController < ApplicationController
     session[:index] += 1
     return redirect_to cards_path if end_of_session
     @front = Card.find(@review_cards[session[:index]])
-    @back = @front.flip_side
+    @back = Card.find(@front.flip_side_id)
     render :review_card
   end
 
@@ -81,11 +83,20 @@ class CardsController < ApplicationController
     session[:index] >= @review_cards.length
   end
 
-
   private
 
   def card_params
     params.require(:card).permit(:category_id, :front, :back, :id, :description )
+  end
+
+  def get_cards_by_category
+    category = params[:category]
+    if category && category != ""
+      cards = Card.where("category_id = ?", category)
+    else
+      cards = Card.all
+    end
+      return cards
   end
 
 end

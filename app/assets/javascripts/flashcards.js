@@ -1,7 +1,7 @@
 function display_cards(cards) {
   var html = "<div class='display_cards'>"
 
-  for ( i = 0; i < cards.length; i++) {
+  for ( var i = 0; i < cards.length; i++) {
       if ( cards[i].back ) { continue; }
       html += "<div class='front-cards'>"
       if ( i === 0 ) { html += "<h2>Front</h2>" }

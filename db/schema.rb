@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170110113055) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "card_results", force: :cascade do |t|
     t.integer  "card_id"
     t.integer  "consecutive_correct_answers"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["card_id"], name: "index_card_results_on_card_id"
+    t.index ["card_id"], name: "index_card_results_on_card_id", using: :btree
   end
 
   create_table "cards", force: :cascade do |t|
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 20170110113055) do
     t.integer  "streak",       default: 0
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["category_id"], name: "index_cards_on_category_id"
-    t.index ["flip_side_id"], name: "index_cards_on_flip_side_id"
+    t.index ["category_id"], name: "index_cards_on_category_id", using: :btree
+    t.index ["flip_side_id"], name: "index_cards_on_flip_side_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|

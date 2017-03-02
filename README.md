@@ -8,9 +8,6 @@ List of Bugs:
 
 -Fix styling
   -currently doesn't look great in mobile
-  
--Redirect New Card/View Cards to new category if no cards exist instead of throwing error
-  -can display helpful error in flash after redirect
 
 Features to add:
 

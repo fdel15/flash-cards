@@ -57,8 +57,6 @@ $(document).on('turbolinks:load', function(){
       dataType: "json"
     })
     .done(function( data ) {
-      console.log("DONE!");
-      console.log(data);
       $('.display_cards').html(display_cards(data))
     })
   })

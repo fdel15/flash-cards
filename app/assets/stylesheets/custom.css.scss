@@ -100,7 +100,9 @@ body {
     .card {
       height: 165px;
       width: 255px;
-      text-overflow: scroll;
+      overflow-y: scroll;
+      list-style-type: decimal;
+      margin: 5px 0;
     }
   }
 }

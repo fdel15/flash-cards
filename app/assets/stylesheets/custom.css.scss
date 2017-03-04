@@ -134,3 +134,14 @@ body {
 .streak-10 {
   border: solid green 2px;
 }
+
+@media only screen and (max-width: 500px) {
+    .display_cards {
+      .front-cards, .back-cards {
+        .card {
+          height: 125px;
+          width: 150px;
+        }
+      }
+    }
+}

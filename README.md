@@ -7,7 +7,8 @@ The app is currently functioning and I am testing it out on https://stark-thicke
 List of Bugs:
 
 - Fix styling
-  - display cards as html_safe
+  - redesign database schema
+    - Card object should have a front and back. I shouldn't have "front" cards and "back" cards.
   - make it easier to write cards as html
   - currently doesn't look great in mobile
 

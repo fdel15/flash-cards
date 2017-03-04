@@ -14,6 +14,8 @@ module ApplicationHelper
 
   def display_card(card)
     streak = card.streak >= 10 ? 10 : card.streak
-    "<h4 class='card streak-#{ streak }'>#{ card.description }</h4>".html_safe
+    "<div class='card streak-#{ streak }'>
+      #{ card.description.html_safe }
+      </div>".html_safe
   end
 end

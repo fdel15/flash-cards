@@ -4,11 +4,11 @@ function display_cards(cards) {
   for ( var i = 0; i < cards.length; i++) {
       if ( cards[i].back ) { continue; }
       html += "<div class='front-cards'>"
-      if ( i === 0 ) { html += "<h2>Front</h2>" }
+      if ( i === 0 || i === 1 ) { html += "<h2>Front</h2>" }
       html += display_card(cards[i])
       html += "</div>"
       html += "<div class='back-cards'>"
-      if ( i === 0 ) { html += "<h2>Back</h2>" }
+      if ( i === 0 || i === 1) { html += "<h2>Back</h2>" }
       html += display_card(get_card(cards, cards[i].flip_side_id))
       html += "</div>"
   }
@@ -27,12 +27,12 @@ function get_card(cards, id) {
 }
 
 function display_card(card) {
-  return  "<h4 class='card streak-" + card.streak + "'>" + card.description + "</h4>" +
+  return  "<div class='card streak-" + card.streak + "'>" + card.description + "</div>" +
           edit_button(card.id) + delete_button(card.id)
 }
 
 function edit_button(card_id) {
-  return "<button class='btn btn-primary edit-delete'><a href='/cards/'" + card_id + "/edit>Edit</a></button>"
+  return "<button class='btn btn-primary edit-delete'><a href='/cards/" + card_id + "/edit'>Edit</a></button>"
 }
 
 function delete_button(card_id) {

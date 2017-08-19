@@ -5,8 +5,24 @@ class Card < ApplicationRecord
   validates :description, presence: true, length: { minimum: 1 }
   validates :category_id, presence: true
 
-  def self.get_cards_by_category(category)
+  def self.get_cards_by_category(category = nil)
     category.present? ? Card.where("category_id = ?", category) : Card.all
+  end
+
+  def self.get_review_cards(category)
+    get_cards_by_category(category).where("front = true")
+  end
+
+  def self.save_cards(front, back)
+    front.save
+    back.flip_side_id = front.id
+    back.save
+    front.update!(flip_side_id: back.id)
+  end
+
+  def delete
+    Card.destroy(self.flip_side_id)
+    self.destroy
   end
 
   def keep_flip_category_in_sync

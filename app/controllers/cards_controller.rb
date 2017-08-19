@@ -59,7 +59,8 @@ class CardsController < ApplicationController
   end
 
   def new_review_session
-    cards = get_cards_by_category
+    byebug
+    cards = Card.get_cards_by_category(params[:category])
     @review_cards = cards.select{ |card| card.front }.shuffle()
     session[:index] = 0
     @front = Card.find(@review_cards[session[:index]])
@@ -87,16 +88,6 @@ class CardsController < ApplicationController
 
   def card_params
     params.require(:card).permit(:category_id, :front, :back, :id, :description )
-  end
-
-  def get_cards_by_category
-    category = params[:category]
-    if category && category != ""
-      cards = Card.where("category_id = ?", category)
-    else
-      cards = Card.all
-    end
-      return cards
   end
 
 end
